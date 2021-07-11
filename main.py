@@ -13,14 +13,14 @@ logger = logging.getLogger(__name__)
 def ufrrj(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("Let me check")
     update.message.reply_photo(
-        "https://api.screenshotmachine.com?key=129c04&url=https%3A%2F%2Fr1.ufrrj.br%2Fsisu%2F3-lista-de-espera%2Fmanifestacao-de-interesse%2F&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
+        "https://api.screenshotmachine.com?key=7acbb8&url=https%3A%2F%2Fr1.ufrrj.br%2Fsisu%2F3-lista-de-espera%2Fmanifestacao-de-interesse%2F&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
 
 
 def scheenshot(update: Update, context: CallbackContext) -> None:
     text = update.message.text.lower()
     update.message.reply_text("Looking for " + text)
     update.message.reply_photo(
-        f"https://api.screenshotmachine.com?key=129c04&url=https%3A%2F%2F{text}.com&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
+        f"https://api.screenshotmachine.com?key=7acbb8&url=https%3A%2F%2F{text}.com&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
 
 
 def main() -> None:
