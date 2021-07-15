@@ -9,7 +9,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
+Image_key = "129c04"
 def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(
         "Hello! Send me the website you want me to screenshot for you. It can be a link or just the name")
@@ -18,7 +18,7 @@ def start(update: Update, context: CallbackContext) -> None:
 def ufrrj(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("Let me check")
     update.message.reply_photo(
-        "https://api.screenshotmachine.com?key=129c04&&url=https%3A%2F%2Fr1.ufrrj.br%2Fsisu%2F3-lista-de-espera%2Fmanifestacao-de-interesse%2F&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
+        f"https://api.screenshotmachine.com?key={Image_key}&&url=https%3A%2F%2Fr1.ufrrj.br%2Fsisu%2F3-lista-de-espera%2Fmanifestacao-de-interesse%2F&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
 
 
 def scheenshot(update: Update, context: CallbackContext) -> None:
@@ -26,11 +26,11 @@ def scheenshot(update: Update, context: CallbackContext) -> None:
     text = update.message.text.lower()
 
     if "http" in text:
-        url = f"https://api.screenshotmachine.com?key=7acbb8&&url={text}&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
+        url = f"https://api.screenshotmachine.com?key={Image_key}&&url={text}&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
     elif not ".com" in text:
-        url = f"https://api.screenshotmachine.com?key=7acbb8&&url=https%3A%2F%2F{text}.com&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
+        url = f"https://api.screenshotmachine.com?key={Image_key}&&url=https%3A%2F%2F{text}.com&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
     else:
-        url = f"https://api.screenshotmachine.com?key=7acbb8&&url=https%3A%2F%2F{text}&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
+        url = f"https://api.screenshotmachine.com?key={Image_key}&&url=https%3A%2F%2F{text}&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
     update.message.reply_text("Looking for " + text)
     update.message.reply_photo(
         url)
