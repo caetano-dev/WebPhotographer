@@ -35,6 +35,7 @@ def scheenshot(update: Update, context: CallbackContext) -> None:
     else:
         url = f"{url_base}{Image_key}&&url=https%3A%2F%2F{text}&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0"
     update.message.reply_text("Looking for " + text)
+    print("looking for "+text)
     update.message.reply_photo(
         url)
 
