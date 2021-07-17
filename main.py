@@ -18,12 +18,6 @@ def start(update: Update, context: CallbackContext) -> None:
         "Hello! Send me the website you want me to screenshot for you. It can be a link or just the name")
 
 
-def ufrrj(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text("Let me check")
-    update.message.reply_photo(
-        f"{url_base}{Image_key}&&url=https%3A%2F%2Fr1.ufrrj.br%2Fsisu%2F3-lista-de-espera%2Fmanifestacao-de-interesse%2F&device=desktop&dimension=1024x768&format=png&cacheLimit=0&delay=0")
-
-
 def scheenshot(update: Update, context: CallbackContext) -> None:
     url = ""
     text = update.message.text.lower()
@@ -44,7 +38,6 @@ def main() -> None:
     updater = Updater(keys.API_KEY, use_context=True)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("ufrrj", ufrrj))
     dispatcher.add_handler(CommandHandler("scheenshot", scheenshot))
     dispatcher.add_handler(MessageHandler(
         Filters.text & ~Filters.command, scheenshot))
