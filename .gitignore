@@ -1,3 +1,5 @@
 __pycache__
-webScreenshot.png
-constants.py
+settings.json
+.env
+screenshot.png
+*.log
