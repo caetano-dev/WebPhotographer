@@ -42,21 +42,26 @@ def screenshot(update: Update, context: CallbackContext) -> None:
     """Take a screenshot and send."""
     search = update.message.text
 
+    # check if is a invalid URL for fix.
     if re.match(regex, search) is None:
         search = update.message.text
         search = f'https://www.{search}.com'
 
     update.message.reply_text("Searching...")
 
+    # active headless option.
     options = Options()
     options.headless = True
 
     browser = webdriver.Firefox(
         options=options, executable_path=r'./geckodriver')
 
+    # acess url.
     browser.get(search)
+    # take screenshot.
     browser.save_screenshot('screenshot.png')
 
+    # send screenshot.
     update.message.bot.send_photo(
         chat_id=update.effective_chat.id, photo=open('screenshot.png', 'rb'))
 
