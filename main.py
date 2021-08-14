@@ -35,7 +35,7 @@ def start(update: Update, context: CallbackContext) -> None:
 
 def help_command(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
+    update.message.reply_text('Send me the name or link of the website. I will take care of the rest.')
 
 
 def screenshot(update: Update, context: CallbackContext) -> None:
@@ -79,10 +79,7 @@ def main() -> None:
     dispatcher.add_handler(CommandHandler('help', help_command))
 
     # on non command i.e message - echo the message on Telegram
-    dispatcher.add_handler(MessageHandler(
-        Filters.text & ~Filters.command, screenshot))
-
-    # Start the Bot
+    dispatcher.add_handler(MessageHandler( Filters.text & ~Filters.command, screenshot)) # Start the Bot
     updater.start_polling()
 
     # Run the bot until the user presses Ctrl-C or the process receives SIGINT,
