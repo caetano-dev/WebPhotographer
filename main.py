@@ -29,8 +29,8 @@ regex = re.compile(
 
 
 def start(update: Update, context: CallbackContext) -> None:
-    """Sends a message with three inline buttons attached."""
-    update.message.reply_text('Start!')
+    """Sends a message when the bot is started"""
+    update.message.reply_text('Hello! Type /help to see what I can do.')
 
 
 def help_command(update: Update, context: CallbackContext) -> None:
@@ -45,7 +45,11 @@ def screenshot(update: Update, context: CallbackContext) -> None:
     # check if is a invalid URL for fix.
     if re.match(regex, search) is None:
         search = update.message.text
-        search = f'https://www.{search}.com'
+        #check if domain contains a . in it
+        if "." not in search:
+            search = f'{search}.com'
+
+        search = f' https://www.{search}'
 
     update.message.reply_text("Searching...")
 
